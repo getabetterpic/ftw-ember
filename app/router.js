@@ -6,6 +6,14 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('accounts', function() {
+    this.route('show', {path: '/:account_id'}, function() {
+      this.route('transactions', {resetNamespace: true}, function() {
+        this.route('show', {path: '/:transaction_id'});
+      });
+    });
+    this.route('new');
+  });
 });
 
 export default Router;

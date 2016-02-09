@@ -4,6 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ftw-ember',
     environment: environment,
+    firebase: 'https://YOUR-FIREBASE-NAME.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -12,11 +13,20 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
+    contentSecurityPolicy: {
+      'script-src': "'self' https://use.typekit.net https://*.firebaseio.com",
+      'img-src': "'self' https://p.typekit.net",
+      'font-src': "'self' data:",
+      'connect-src': "wss://*.firebaseio.com",
+      'style-src': "'self' https://use.typekit.net",
+      'default-src': "'self' https://*.firebaseio.com"
+    },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+    firebase: 'https://ftwealth.firebaseio.com/'
   };
 
   if (environment === 'development') {
