@@ -7,11 +7,11 @@
   {{#if model.transactions}}
     {{#each model.transactions as |transaction|}}
       <li class="collection-item">
-        <div>
-          {{moment-format transaction.postedDate 'MMM D'}}
+        <div class="title">
+          {{transaction.description}}
           <div class="secondary-content">{{format-number transaction.amount}}</div>
         </div>
-        <div>{{transaction.description}}</div>
+        {{moment-format transaction.postedDate 'MMM D'}}
       </li>
     {{/each}}
   {{else}}
