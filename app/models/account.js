@@ -2,7 +2,7 @@ import DS from 'ember-data';
 
 let Account = DS.Model.extend({
   description: DS.attr('string'),
-  balance: DS.attr('number'),
+  postedBalance: DS.attr('number'),
   transactions: DS.hasMany('transaction', { async: true })
 });
 

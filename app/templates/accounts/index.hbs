@@ -7,7 +7,7 @@
   {{#each model as |account|}}
     {{#link-to 'transactions' account tagName="li" class="collection-item pointer"}}
       <div>{{account.description}}
-        <div class="secondary-content">{{format-number account.balance}}</div>
+        <div class="secondary-content">{{format-number account.postedBalance}}</div>
       </div>
     {{/link-to}}
   {{/each}}
