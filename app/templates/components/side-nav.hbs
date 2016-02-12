@@ -1,9 +1,9 @@
 <div class="navbar-fixed">
   <ul id="accounts-dropdown" class="dropdown-content">
-    {{#link-to 'accounts'}}All{{/link-to}}
+    {{#link-to 'accounts' tagName="li"}}<a>All</a>{{/link-to}}
     <li class="divider"></li>
     {{#each accounts as |account|}}
-      {{#link-to 'transactions' account tagName="li"}}{{account.description}}{{/link-to}}
+      {{#link-to 'transactions' account tagName="li"}}<a>{{account.description}}</a>{{/link-to}}
     {{/each}}
   </ul>
   <nav>

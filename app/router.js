@@ -10,10 +10,13 @@ Router.map(function() {
     this.route('show', {path: '/:account_id'}, function() {
       this.route('transactions', { resetNamespace: true }, function() {
         this.route('show', {path: '/:transaction_id'});
+        this.route('new');
       });
     });
     this.route('new');
   });
+  this.route('login');
+  this.route('signup');
 });
 
 export default Router;
