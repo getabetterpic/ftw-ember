@@ -1,0 +1,23 @@
+<div class="row">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s12 m6">
+        <label class="active" for="postedDate">Date</label>
+        {{#date-picker}}
+          {{input value=postedDate type="date" class="datepicker validate" id="postedDate"}}
+        {{/date-picker}}
+      </div>
+      <div class="input-field col s12 m6">
+        {{input value=description type="text"}}
+        <label for="description">Description</label>
+      </div>
+      <div class="input-field col s12 m6">
+        {{input value=amount type="number"}}
+        <label for="amount">Amount</label>
+      </div>
+    </div>
+    <div class="row">
+      <button type="submit" name="button" class="waves-effect waves-light btn-large" {{action 'saveTransaction'}}>Save</button>
+    </div>
+  </form>
+</div>

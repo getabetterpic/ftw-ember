@@ -17,8 +17,8 @@ module.exports = function(environment) {
       'script-src': "'self' https://use.typekit.net https://*.firebaseio.com",
       'img-src': "'self' https://p.typekit.net",
       'font-src': "'self' data:",
-      'connect-src': "wss://*.firebaseio.com",
-      'style-src': "'self' https://use.typekit.net",
+      'connect-src': "'self' http://localhost:3000 wss://*.firebaseio.com",
+      'style-src': "'self' http://10.0.1.21:4200 https://use.typekit.net",
       'default-src': "'self' https://*.firebaseio.com"
     },
 
