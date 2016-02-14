@@ -1,23 +1,22 @@
 <div class="navbar-fixed">
-  <ul id="accounts-dropdown" class="dropdown-content">
-    {{#link-to 'accounts' tagName="li"}}<a>All</a>{{/link-to}}
-    <li class="divider"></li>
-    {{#each accounts as |account|}}
-      {{#link-to 'transactions' account tagName="li"}}<a>{{account.description}}</a>{{/link-to}}
-    {{/each}}
-  </ul>
   <nav>
     <div class="nav-wrapper">
       <a href="/" class="brand-logo">FortuneTellerWealth</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>
-          <a class="dropdown-button" href="#!" data-activates="accounts-dropdown">
-            Accounts<i class="mdi-navigation-arrow-drop-down right"></i>
-          </a>
-        </li>
+        {{#if session.isAuthenticated}}
+          {{#link-to 'accounts' tagName="li"}}<a>Accounts</a>{{/link-to}}
+          <li><a {{action 'invalidateSession'}}>Logout</a></li>
+        {{else}}
+          {{#link-to 'login' tagName="li"}}<a>Login</a>{{/link-to}}
+        {{/if}}
       </ul>
       <ul id="slide-out" class="side-nav">
-        {{#link-to 'accounts' tagName="li"}}<a>Accounts</a>{{/link-to}}
+        {{#if session.isAuthenticated}}
+          {{#link-to 'accounts' tagName="li"}}<a>Accounts</a>{{/link-to}}
+          <li><a {{action 'invalidateSession'}}>Logout</a></li>
+        {{else}}
+          {{#link-to 'login' tagName="li"}}<a>Login</a>{{/link-to}}
+        {{/if}}
       </ul>
       <a href="/" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
     </div>

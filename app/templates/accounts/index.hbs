@@ -5,12 +5,10 @@
 </div>
 <ul class="collection z-depth-1">
   {{#each model as |account|}}
-    <li>
-      {{#link-to 'transactions' account class="collection-item pointer"}}
-        <div>{{account.description}}
-          <div class="secondary-content">{{format-number account.postedBalance}}</div>
-        </div>
-      {{/link-to}}
-    </li>
+    {{#link-to 'transactions' account class="collection-item pointer" tagName="li"}}
+      <a>{{account.description}}
+        <div class="secondary-content">{{format-number account.postedBalance}}</div>
+      </a>
+    {{/link-to}}
   {{/each}}
 </ul>

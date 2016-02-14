@@ -7,6 +7,5 @@ export default Ember.Component.extend({
       closeOnClick: true
     });
     $('.dropdown-button').dropdown();
-    this._super.apply(this, arguments);
   }
 });

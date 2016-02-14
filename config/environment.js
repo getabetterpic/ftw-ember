@@ -26,13 +26,17 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-    firebase: 'https://ftwealth.firebaseio.com/'
+    firebase: 'https://ftwealth.firebaseio.com/',
+    'ember-simple-auth': {
+      routeAfterAuthentication: 'accounts',
+      routeIfAlreadyAuthenticated: 'accounts'
+    }
   };
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
