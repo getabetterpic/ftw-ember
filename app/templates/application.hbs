@@ -1,4 +1,11 @@
-{{side-nav accounts=model session=session}}
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      {{nav-bar session=session}}
+      {{side-nav session=session}}
+    </div>
+  </nav>
+</div>
 <div class="container">
 
   {{outlet}}

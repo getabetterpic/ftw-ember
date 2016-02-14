@@ -1,4 +1,5 @@
-<ul id="slide-out" class="side-nav">
+<a href="/" class="brand-logo">FortuneTellerWealth</a>
+<ul id="nav-mobile" class="right hide-on-med-and-down">
   {{#if session.isAuthenticated}}
     {{#link-to 'accounts' tagName="li"}}<a>Accounts</a>{{/link-to}}
     <li><a {{action 'invalidateSession'}}>Logout</a></li>
@@ -6,4 +7,3 @@
     {{#link-to 'login' tagName="li"}}<a>Login</a>{{/link-to}}
   {{/if}}
 </ul>
-<a href="/" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
