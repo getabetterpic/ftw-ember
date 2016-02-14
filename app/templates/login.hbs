@@ -1,0 +1,11 @@
+<form {{action 'authenticate' on='submit'}}>
+  <div class="input-field">
+    <label for="identification">Login</label>
+    {{input id='identification' value=identification}}
+  </div>
+  <div class="input-field">
+    <label for="password">Password</label>
+    {{input id='password' type='password' value=password}}
+  </div>
+  <button type="submit" class="btn">Login</button>
+</form>

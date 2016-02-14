@@ -1,14 +1,14 @@
 <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-  {{#link-to 'accounts.new' class="btn-floating btn-large red"}}
+  {{#link-to 'accounts.new' class="btn-floating btn-large z-depth-1"}}
     <i class="large mdi-content-add">add</i>
   {{/link-to}}
 </div>
 <ul class="collection z-depth-1">
   {{#each model as |account|}}
-    {{#link-to 'transactions' account tagName="li" class="collection-item pointer"}}
-      <div>{{account.description}}
+    {{#link-to 'transactions' account class="collection-item pointer" tagName="li"}}
+      <a>{{account.description}}
         <div class="secondary-content">{{format-number account.postedBalance}}</div>
-      </div>
+      </a>
     {{/link-to}}
   {{/each}}
 </ul>

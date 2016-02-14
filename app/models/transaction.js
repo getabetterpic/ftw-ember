@@ -4,7 +4,8 @@ let Transaction = DS.Model.extend({
   description: DS.attr('string'),
   amount: DS.attr('number'),
   authorizedDate: DS.attr('date'),
-  postedDate: DS.attr('date')
+  postedDate: DS.attr('date'),
+  account: DS.belongsTo('account', { async: true })
 });
 
 Transaction.reopenClass({

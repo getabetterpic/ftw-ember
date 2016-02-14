@@ -1,7 +1,9 @@
-import Ember from 'ember';
 import DS from 'ember-data';
+import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 
-const { inject } = Ember;
-
-export default DS.JSONAPIAdapter.extend({
+export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
+  authorizer: 'authorizer:devise',
+  shouldReloadAll() {
+    return true;
+  }
 });
