@@ -1,0 +1,15 @@
+<form {{action 'signup' on='submit'}}>
+  <div class="input-field">
+    <label for="identification">Email</label>
+    {{input id='identification' value=identification}}
+  </div>
+  <div class="input-field">
+    <label for="password">Password</label>
+    {{input id='password' type='password' value=password}}
+  </div>
+  <div class="input-field">
+    <label for="password-confirmation">Password</label>
+    {{input id='password-confirmation' type='password' value=passwordConfirmation}}
+  </div>
+  <button type="submit" class="btn">Signup</button>
+</form>
