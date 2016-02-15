@@ -10,9 +10,7 @@ Router.map(function() {
     this.route('show', {path: '/:account_id'}, function() {
       this.route('transactions', { resetNamespace: true }, function() {
         this.route('show', {path: '/:transaction_id'});
-        this.route('new', function() {
-          this.route('verify');
-        });
+        this.route('new');
       });
     });
     this.route('new', function() {

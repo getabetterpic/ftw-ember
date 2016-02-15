@@ -1,5 +1,5 @@
 {{#if newAccount}}
-  {{new-account session=session newAccountFalse='newAccountFalse'}}
+  {{new-account session=session mfaStep='mfaStep' goToAccounts='goToAccounts'}}
 {{else}}
-  {{mfa-steps session=session}}
+  {{mfa-steps session=session mfaStep='mfaStep' accessToken=accessToken goToAccounts='goToAccounts'}}
 {{/if}}

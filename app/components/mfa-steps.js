@@ -1,23 +1,27 @@
+/* globals $ */
 import Ember from 'ember';
+import DS from 'ember-data';
 
 export default Ember.Component.extend({
+  mfaQuestions: null,
+  accessToken: null,
+
   actions: {
-    saveAccount() {
-      var self = this, account;
-      const bankCode = this.get('bankCode');
-      const username = this.get('username');
-      const password = this.get('password');
+    sendMfa() {
+      let self = this, account;
+      let answer = this.get('answer');
+      console.log(answer);
+      console.log(this.get('accessToken'));
       const data = {
-        username: username,
-        password: password,
-        bankCode: bankCode
+        mfa: answer,
+        access_token: this.get('accessToken')
       };
 
       this.get('session').authorize('authorizer:devise', function(headerName, headerContent) {
         account = DS.PromiseObject.create({
           promise: $.ajax({
             method: 'POST',
-            url: '/accounts',
+            url: '/accounts/mfa',
             data: data,
             headers: {
               'Authorization': headerContent
@@ -27,16 +31,12 @@ export default Ember.Component.extend({
       });
 
       account.then(function(data) {
-        if (data.api_res && data.api_res === "Requires further authentication" && data.pending_mfa_questions.mfa) {
+        if (data.pending_mfa_questions) {
           self.sendAction('mfaStep', data.pending_mfa_questions, data.access_token);
         } else {
           self.sendAction('goToAccounts', data);
         }
       });
-    },
-
-    bankSelected(bankCode) {
-      this.set('bankCode', bankCode);
     }
   }
 });

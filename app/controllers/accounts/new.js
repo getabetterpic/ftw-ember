@@ -6,12 +6,19 @@ export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
   newAccount: true,
   mfaQuestions: null,
+  accessToken: null,
 
   actions: {
-    newAccountFalse(pending_mfa_questions) {
-      console.log("newAccountFalse called");
-      this.set('newAccount', false);
-      this.set('mfaQuestions', pending_mfa_questions);
+    mfaStep(pendingMfaQuestions, accessToken) {
+      this.setProperties({
+        newAccount: false,
+        mfaQuestions: pendingMfaQuestions,
+        accessToken: accessToken
+      });
+    },
+    goToAccounts(data) {
+      console.log("goToAccounts called in accounts.new controller");
+      this.transitionToRoute('accounts');
     }
   }
 });
