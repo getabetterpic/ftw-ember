@@ -30,7 +30,7 @@ export default Ember.Component.extend({
         if (data.api_res && data.api_res === "Requires further authentication" && data.pending_mfa_questions.mfa) {
           self.sendAction('mfaStep', data.pending_mfa_questions, data.access_token);
         } else {
-          self.sendAction('goToAccounts', data);
+          self.sendAction('goToAccounts');
         }
       });
     },

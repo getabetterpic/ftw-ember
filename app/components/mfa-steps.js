@@ -34,7 +34,7 @@ export default Ember.Component.extend({
         if (data.pending_mfa_questions) {
           self.sendAction('mfaStep', data.pending_mfa_questions, data.access_token);
         } else {
-          self.sendAction('goToAccounts', data);
+          self.sendAction('goToAccounts');
         }
       });
     }

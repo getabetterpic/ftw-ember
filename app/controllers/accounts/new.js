@@ -16,8 +16,7 @@ export default Ember.Controller.extend({
         accessToken: accessToken
       });
     },
-    goToAccounts(data) {
-      console.log("goToAccounts called in accounts.new controller");
+    goToAccounts() {
       this.transitionToRoute('accounts');
     }
   }
