@@ -1,0 +1,6 @@
+<select onchange={{action 'bankSelected' value="target.value"}}>
+  <option value="" disabled="true" selected="true">Select your bank</option>
+  {{#each financialInstitutions as |bank|}}
+    <option value={{bank.type}}>{{bank.name}}</option>
+  {{/each}}
+</select>

@@ -1,24 +1,33 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  financialInsitutions: [
+    {
+      id: '1',
+      value: 'Bank of America'
+    }
+  ],
+
   actions: {
     saveAccount() {
       var self = this;
-      console.log(this);
-      const description = this.get('description');
-      const balance = this.get('balance');
-      console.log("Description: " + description);
-      console.log("Balance: " + balance);
-      let account = this.store.createRecord('account', {
-        description: description,
-        balance: balance
-      });
-      account.save().then(function(account) {
-        console.log(account);
-        self.transitionToRoute('transactions', account);
-      }).catch(function(error) {
-        console.log(error);
-      });
+      const bank = this.get('bank');
+      const username = this.get('username');
+      const password = this.get('password');
+      // let account = this.store.createRecord('account', {
+      //   username: username,
+      //   password: password,
+      //   bank: bank
+      // });
+      // account.save().then(function(data) {
+      //   console.log(data);
+      // }).catch(function(error) {
+      //   console.log(error);
+      // });
+    },
+    bankSelected(bank) {
+      this.set('bank', bank);
+      console.log(this.get('bank'));
     }
   }
 });
