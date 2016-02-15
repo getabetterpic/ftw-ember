@@ -1,0 +1,7 @@
+{{#if session.isAuthenticated}}
+  {{#link-to 'accounts' tagName="li"}}<a>Accounts</a>{{/link-to}}
+  <li><a {{action 'invalidateSession'}}>Logout</a></li>
+{{else}}
+  {{#link-to 'login' tagName="li"}}<a>Login</a>{{/link-to}}
+  {{#link-to 'signup' tagName="li"}}<a>Signup</a>{{/link-to}}
+{{/if}}

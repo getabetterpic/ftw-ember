@@ -1,0 +1,18 @@
+<form {{action 'signup' on='submit'}}>
+  <div class="input-field">
+    <label for="identification" id="email-label">Email</label>
+    {{input id='identification' value=identification type="email" class="validate"
+      data-error="Email is blank"}}
+  </div>
+  <div class="input-field">
+    <label for="password">Password</label>
+    {{input id='password' type='password' value=password class="validate"
+      data-error="Password is blank"}}
+  </div>
+  <div class="input-field">
+    <label for="password-confirmation" id="password-confirmation-label">Confirm Password</label>
+    {{input id='password-confirmation' type='password' value=passwordConfirmation class="validate"
+      data-error="Password confirmation is blank"}}
+  </div>
+  <button type="submit" class="btn">Signup</button>
+</form>
