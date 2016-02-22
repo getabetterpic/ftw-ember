@@ -1,17 +1,5 @@
-<div class="row">
-  <form class="col s12">
-    <div class="row">
-      <div class="input-field col s12 m6">
-        {{input value=description type="text"}}
-        <label for="description">Description</label>
-      </div>
-      <div class="input-field col s12 m6">
-        {{input value=balance type="number"}}
-        <label for="balance">Balance</label>
-      </div>
-    </div>
-    <div class="row">
-      <button type="submit" name="button" class="waves-effect waves-light btn-large" {{action 'saveAccount'}}>Save</button>
-    </div>
-  </form>
-</div>
+{{#if newAccount}}
+  {{new-account session=session mfaStep='mfaStep' goToAccounts='goToAccounts' store=store}}
+{{else}}
+  {{mfa-steps session=session mfaStep='mfaStep' accessToken=accessToken goToAccounts='goToAccounts'}}
+{{/if}}

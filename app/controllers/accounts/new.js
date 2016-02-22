@@ -1,24 +1,21 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  session: Ember.inject.service('session'),
+  newAccount: true,
+  mfaQuestions: null,
+  accessToken: null,
+
   actions: {
-    saveAccount() {
-      var self = this;
-      console.log(this);
-      const description = this.get('description');
-      const balance = this.get('balance');
-      console.log("Description: " + description);
-      console.log("Balance: " + balance);
-      let account = this.store.createRecord('account', {
-        description: description,
-        balance: balance
+    mfaStep(pendingMfaQuestions, accessToken) {
+      this.setProperties({
+        newAccount: false,
+        mfaQuestions: pendingMfaQuestions,
+        accessToken: accessToken
       });
-      account.save().then(function(account) {
-        console.log(account);
-        self.transitionToRoute('transactions', account);
-      }).catch(function(error) {
-        console.log(error);
-      });
+    },
+    goToAccounts() {
+      this.transitionToRoute('accounts');
     }
   }
 });

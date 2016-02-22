@@ -26,10 +26,18 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-    firebase: 'https://ftwealth.firebaseio.com/',
+
     'ember-simple-auth': {
       routeAfterAuthentication: 'accounts',
       routeIfAlreadyAuthenticated: 'accounts'
+    },
+
+    'ember-plaid': {
+      clientName: 'FTW',
+      product: 'auth',
+      key: '53c4532d4f6ae714ba8cc2aaf10769',
+      env: 'tartan',
+      longTail: true
     }
   };
 

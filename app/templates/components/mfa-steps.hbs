@@ -1,0 +1,14 @@
+<div class="row">
+  <h4>Please answer the questions to complete account creation.</h4>
+</div>
+<div class="row">
+  <form>
+    {{#each mfaQuestions.mfa as |question|}}
+      <div class="input-field s12 m6">
+        {{input id="mfa" value=answer type="text" placeholder=" "}}
+        <label for="mfa">{{question.question}}</label>
+      </div>
+    {{/each}}
+    <button type="submit" class="btn" {{action 'sendMfa'}}>Submit</button>
+  </form>
+</div>
