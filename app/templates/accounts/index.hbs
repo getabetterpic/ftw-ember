@@ -1,22 +1,15 @@
 <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-  {{#link-to 'accounts.new' class="btn-floating btn-large z-depth-5"}}
+  {{#link-to 'accounts.link' class="btn-floating btn-large z-depth-5"}}
     <i class="large mdi-content-add">add</i>
   {{/link-to}}
 </div>
-<div class="row">
-  <ul class="collection z-depth-1 col s12">
-    {{#if model}}
-      {{#each model as |account|}}
-        {{#link-to 'transactions' account class="collection-item pointer" tagName="li"}}
-          <a>{{account.description}}
-            <div class="secondary-content">{{format-number account.availableBalance}}</div>
-          </a>
-        {{/link-to}}
-      {{/each}}
-    {{else}}
-      <li class="collection-item">Looks like you don't have any accounts yet. Why don't you go ahead and
-        {{#link-to 'accounts.new'}}add one{{/link-to}}?
-      </li>
-    {{/if}}
-  </ul>
+<ul class="collection z-depth-1 hide-on-med-and-up">
+  {{accounts-list model=model}}
+</ul>
+<div class="col m12">
+  <div class="card hide-on-small-only">
+    <div class="card-content">
+      Select an account to the left to see transaction details
+    </div>
+  </div>
 </div>

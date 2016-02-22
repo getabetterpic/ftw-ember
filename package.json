@@ -51,6 +51,7 @@
     "ember-simple-auth-token": "1.0.0",
     "ember-truth-helpers": "1.2.0",
     "emberfire": "1.6.4",
+    "liquid-fire": "0.23.0",
     "moment": "2.11.2",
     "moment-timezone": "0.5.0"
   }

@@ -3,23 +3,25 @@
     <i class="large mdi-content-add">add</i>
   {{/link-to}}
 </div>
-<ul class="collection with-header z-depth-1">
-  <li class="collection-header">
-    <h5>{{model.account.description}}
-      <div class="secondary-content">{{format-number model.account.availableBalance}}</div>
-    </h5>
-  </li>
-  {{#if model.transactions}}
-    {{#each model.transactions as |transaction|}}
-      <li class="collection-item">
-        <div class="title">
-          {{transaction.description}}
-          <div class="secondary-content">{{format-number transaction.amount}}</div>
-        </div>
-        {{moment-format transaction.postedDate 'MMM D'}}
-      </li>
-    {{/each}}
-  {{else}}
-    <li class="collection-item">): There aren't any transactions here yet.</li>
-  {{/if}}
-</ul>
+<div class="col s12 m12">
+  <ul class="collection with-header z-depth-1">
+    <li class="collection-header">
+      <h5 class="truncate">{{model.account.description}}
+        <div class="secondary-content">{{format-number model.account.availableBalance}}</div>
+      </h5>
+    </li>
+    {{#if model.transactions}}
+      {{#each model.transactions as |transaction|}}
+        <li class="collection-item">
+          <div class="title">
+            {{transaction.description}}
+            <div class="secondary-content">{{format-number transaction.amount}}</div>
+          </div>
+          {{moment-format transaction.postedDate 'MMM D'}}
+        </li>
+      {{/each}}
+    {{else}}
+      <li class="collection-item">): There aren't any transactions here yet.</li>
+    {{/if}}
+  </ul>
+</div>
