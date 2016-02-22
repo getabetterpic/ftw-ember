@@ -10,8 +10,6 @@ export default Ember.Component.extend({
     sendMfa() {
       let self = this, account;
       let answer = this.get('answer');
-      console.log(answer);
-      console.log(this.get('accessToken'));
       const data = {
         mfa: answer,
         access_token: this.get('accessToken')

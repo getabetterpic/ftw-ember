@@ -1,6 +1,5 @@
 /* globals $ */
 import Ember from 'ember';
-import DS from 'ember-data';
 
 export default Ember.Component.extend({
   financialInstitutions: null,
@@ -8,11 +7,9 @@ export default Ember.Component.extend({
   didInsertElement() {
     let self = this;
 
-    let fis = DS.PromiseObject.create({
-      promise: $.ajax('/institutions')
-    });
-    fis.then(function() {
-      self.set('financialInstitutions', fis.get('content'));
+    let institutions = this.get('store').findAll('institution');
+    institutions.then(function(data) {
+      self.set('financialInstitutions', data);
       Ember.run.next(function() {
         $('select').material_select();
       });

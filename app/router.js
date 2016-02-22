@@ -16,6 +16,7 @@ Router.map(function() {
     this.route('new', function() {
       this.route('verify');
     });
+    this.route('link');
   });
   this.route('login');
   this.route('signup');

@@ -1,11 +1,11 @@
 <form {{action 'authenticate' on='submit'}}>
   <div class="input-field">
-    <label for="identification">Login</label>
-    {{input id='identification' value=identification}}
+    <label for="identification" class="active">Login</label>
+    {{input id='identification' value=identification placeholder="Email"}}
   </div>
   <div class="input-field">
-    <label for="password">Password</label>
-    {{input id='password' type='password' value=password}}
+    <label for="password" class="active">Password</label>
+    {{input id='password' type='password' value=password placeholder="Password"}}
   </div>
   <button type="submit" class="btn">Login</button>
 </form>
