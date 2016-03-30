@@ -17,7 +17,7 @@ module.exports = function(environment) {
       'script-src': "'self' https://use.typekit.net https://*.firebaseio.com",
       'img-src': "'self' https://p.typekit.net",
       'font-src': "'self' data:",
-      'connect-src': "'self' http://localhost:3000 wss://*.firebaseio.com",
+      'connect-src': "'self' https://localhost:3000 wss://*.firebaseio.com",
       'style-src': "'self' http://10.0.1.21:4200 https://use.typekit.net",
       'default-src': "'self' https://*.firebaseio.com"
     },
@@ -34,7 +34,7 @@ module.exports = function(environment) {
 
     'ember-plaid': {
       clientName: 'FTW',
-      product: 'auth',
+      product: 'connect',
       key: '53c4532d4f6ae714ba8cc2aaf10769',
       env: 'tartan',
       longTail: true
@@ -47,6 +47,11 @@ module.exports = function(environment) {
     ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.host = 'https://localhost:3000';
+    ENV['ember-simple-auth'].baseURL = 'https://localhost:3000';
+    ENV['simple-auth-devise'] = {
+      serverTokenEndpoint: ENV.APP.host + '/users/sign_in'
+    }
   }
 
   if (environment === 'test') {
@@ -62,7 +67,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.host = 'https://ftw-rails.fortunetellerwealth.com';
   }
 
   return ENV;

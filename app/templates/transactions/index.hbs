@@ -4,18 +4,28 @@
   {{/link-to}}
 </div>
 <div class="col s12 m12">
+  <div class="card col s12 m5">
+    <div class="card-content center-align">
+      <span class="card-title">{{model.account.description}}</span>
+      <div class="stat">{{format-number model.account.availableBalance}}</div>
+    </div>
+  </div>
+  <div class="card col s12 m5 offset-m2">
+    <div class="card-content center-align">
+      <span class="card-title">How Much Left
+        <div class="stat">
+          {{model.account.howMuchLeft}}
+        </div>
+      </span>
+    </div>
+  </div>
   <ul class="collection with-header z-depth-1">
-    <li class="collection-header">
-      <h5 class="truncate">{{model.account.description}}
-        <div class="secondary-content">{{format-number model.account.availableBalance}}</div>
-      </h5>
-    </li>
     {{#if model.transactions}}
       {{#each model.transactions as |transaction|}}
         <li class="collection-item">
           <div class="title">
             {{transaction.description}}
-            <div class="secondary-content">{{format-number transaction.amount}}</div>
+            <div class="secondary-content">{{format-number transaction.amount format="($0.00)"}}</div>
           </div>
           {{moment-format transaction.postedDate 'MMM D'}}
         </li>

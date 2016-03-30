@@ -7,7 +7,8 @@ let Account = DS.Model.extend({
   transactions: DS.hasMany('transaction', { async: true }),
   username: DS.attr('string'),
   password: DS.attr('string'),
-  bankCode: DS.attr('string')
+  bankCode: DS.attr('string'),
+  howMuchLeft: DS.attr('number')
 });
 
 Account.reopenClass({

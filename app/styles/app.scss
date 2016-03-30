@@ -6,3 +6,13 @@
 @import 'cursor';
 @import 'plaid';
 @import 'liquid-outlet';
+
+.stat {
+  font-size: 2.5rem;
+  line-height: 1;
+  color: $secondary-color;
+}
+
+p + .stat {
+  margin-top: -1rem;
+}

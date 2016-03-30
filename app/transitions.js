@@ -6,4 +6,4 @@ export default function(){
     this.use('toLeft'),
     this.reverse('toRight')
   );
-};
+}
